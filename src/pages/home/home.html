@@ -1,6 +1,8 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchAge" (ionInput)="setFilteredAge()"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 
@@ -11,7 +13,16 @@
     that are going to primarily use a Tabbed UI.
   </p>
   <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
+    Take a look at the <code>pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
   </p>
+
+
+  <ion-list>
+    <ion-item *ngFor="let data of jsonData">
+      <ion-label>Name : {{data.name}}</ion-label>
+      <ion-label>Age : {{data.age}}</ion-label>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
